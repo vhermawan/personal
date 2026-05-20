@@ -143,7 +143,6 @@ export default function Journey() {
             className={`group relative grid grid-cols-[60px_1fr] md:grid-cols-[140px_1fr] gap-5 md:gap-10 py-8 border-t ${
               i === ITEMS.length - 1 ? 'border-b' : ''
             }`}
-            style={{ borderColor: 'var(--line)' }}
           >
             <div className="font-mono text-[13px] tracking-[0.08em] pt-1" style={{ color: 'var(--muted)' }}>
               {it.year}
