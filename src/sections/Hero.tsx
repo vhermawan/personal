@@ -27,22 +27,29 @@ export default function Hero() {
         ✦
       </motion.div>
 
-      <Reveal className="flex flex-wrap items-end justify-between gap-5 mb-9 font-mono text-[11px] uppercase tracking-[0.16em] text-ink/55">
-        <span className="inline-flex items-center gap-2 px-3 py-1.5 border border-ink/15 rounded-full bg-white/40">
+      <Reveal
+        className="flex flex-wrap items-end justify-between gap-5 mb-9 font-mono text-[11px] uppercase tracking-[0.16em]"
+        style={{ color: 'var(--muted)' }}
+      >
+        <span
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full"
+          style={{ border: '1px solid var(--line)', background: 'var(--card)' }}
+        >
           <span className="relative w-2 h-2 rounded-full bg-blue">
             <span className="absolute -inset-[3px] rounded-full border-[1.5px] border-blue animate-ping2" />
           </span>
           Available for collaboration · 2026
         </span>
-        <span>Jakarta, ID · UTC+7</span>
+        <span>Surabaya, ID · UTC+7</span>
       </Reveal>
 
       <motion.h1
-        className="font-sans font-light text-ink m-0 relative z-[2]"
+        className="font-sans font-light m-0 relative z-[2]"
         style={{
           letterSpacing: '-0.05em',
           fontSize: 'clamp(56px, 11.5vw, 200px)',
           lineHeight: 0.86,
+          color: 'var(--fg-now)',
           y: titleY,
           opacity: titleOpacity,
         }}
@@ -51,21 +58,19 @@ export default function Hero() {
           {['Hello,', "I'm", <span key="v" className="font-serif italic font-normal text-blue" style={{ letterSpacing: '-0.02em' }}>Vicky</span>]}
         </SplitWords>
         <SplitWords delay={0.4}>
-          {[<span key="h" className="stroke-text">Hermawan,</span>]}
+          {[<span key="h" className="stroke-text">Hermawan, a</span>]}
         </SplitWords>
         <SplitWords delay={0.55}>
-          {[
-            'a',
-            'Developer',
-            <span key="amp" className="font-serif italic font-normal" style={{ letterSpacing: '-0.02em' }}>&amp;</span>,
-            'Student.',
-          ]}
+          {['Fullstack Engineer']}
         </SplitWords>
       </motion.h1>
 
       <div className="grid lg:grid-cols-[1.2fr_1fr] grid-cols-1 gap-10 items-end mt-12 relative z-[2]">
         <div>
-          <Reveal className="text-[clamp(18px,1.4vw,22px)] leading-[1.45] text-ink max-w-[540px]">
+          <Reveal
+            className="text-[clamp(18px,1.4vw,22px)] leading-[1.45] max-w-[540px]"
+            style={{ color: 'var(--fg-now)' }}
+          >
             <p>
               Building <em className="font-serif italic text-blue text-[1.15em]">thoughtful</em>{' '}
               products on the web. Two years as a fullstack developer, an endless student of the
@@ -86,15 +91,22 @@ export default function Hero() {
             </a>
             <a
               href="#project"
-              className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-transparent text-ink border border-ink/15 font-medium text-sm no-underline transition-colors hover:bg-ink hover:text-paper hover:border-ink"
+              className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-transparent font-medium text-sm no-underline transition-colors hover:bg-ink hover:text-paper"
+              style={{ color: 'var(--fg-now)', border: '1px solid var(--line)' }}
             >
               View portfolio
             </a>
           </Reveal>
         </div>
         <Reveal delay={0.2} className="flex flex-col gap-4 items-start">
-          <div className="w-full border border-ink/15 rounded-[18px] p-[22px] bg-white/45 backdrop-blur-md">
-            <h4 className="m-0 mb-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/55 font-medium">
+          <div
+            className="w-full rounded-[18px] p-[22px] backdrop-blur-md"
+            style={{ border: '1px solid var(--line)', background: 'var(--card)' }}
+          >
+            <h4
+              className="m-0 mb-3.5 font-mono text-[11px] uppercase tracking-[0.18em] font-medium"
+              style={{ color: 'var(--muted)' }}
+            >
               Currently
             </h4>
             {[
@@ -106,13 +118,17 @@ export default function Hero() {
               <div
                 key={k}
                 className={`flex items-baseline justify-between py-2 text-sm ${
-                  i === 0 ? '' : 'border-t border-dashed border-ink/10'
+                  i === 0 ? '' : 'border-t border-dashed'
                 }`}
+                style={i !== 0 ? { borderColor: 'var(--line-2)' } : undefined}
               >
-                <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-ink/55">
+                <span
+                  className="font-mono text-[11px] uppercase tracking-[0.1em]"
+                  style={{ color: 'var(--muted)' }}
+                >
                   {k}
                 </span>
-                <span className="font-medium text-ink">{v}</span>
+                <span className="font-medium" style={{ color: 'var(--fg-now)' }}>{v}</span>
               </div>
             ))}
           </div>

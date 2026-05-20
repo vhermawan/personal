@@ -48,7 +48,7 @@ export default function Marquee() {
     <div className="relative z-[3] mt-20 border-y border-ink/15 py-[22px] overflow-hidden marquee-mask">
       <motion.div
         ref={containerRef}
-        className="flex gap-12 w-max font-serif italic text-[34px] text-ink items-center will-change-transform"
+        className="flex gap-12 w-max font-serif italic text-[34px] text-ink items-center dark:text-white will-change-transform"
         style={{ x: baseX }}
       >
         {[0, 1].map((rep) => (

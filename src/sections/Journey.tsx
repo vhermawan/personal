@@ -9,6 +9,7 @@ interface Item {
   org: string;
   desc: string;
   tags: string[];
+  achievement: React.ReactNode;
 }
 
 const ITEMS: Item[] = [
@@ -19,6 +20,9 @@ const ITEMS: Item[] = [
     desc:
       'Architecting and maintaining the core web platform and mobile apps (iOS & Android). Led a major React Native upgrade (v0.76 → v0.81) that brought Play Store compliance and cut Android bundle size by 10% (38MB → 34MB). Automated deployment previews for PRs, lifting team release productivity by 20%.',
     tags: ['React Native', 'iOS', 'Android', 'CI/CD'],
+    achievement: (
+      <>Cut Android bundle from <em>38MB → 34MB</em> and automated PR deploy previews — 20% uplift in release velocity.</>
+    ),
   },
   {
     year: '2025 — Now',
@@ -27,6 +31,9 @@ const ITEMS: Item[] = [
     desc:
       'Coaching students on frontend fundamentals, modern React patterns, and the practical gap between bootcamp and production code.',
     tags: ['React', 'Mentoring', 'Frontend'],
+    achievement: (
+      <>Bridging bootcamp to production — students leaving with <em>real PR experience</em>, not just tutorial projects.</>
+    ),
   },
   {
     year: 'Apr 2024 — Feb 2025',
@@ -35,6 +42,9 @@ const ITEMS: Item[] = [
     desc:
       'Implemented the Deposito feature that drove IDR 26.8B growth in DPK across 454 users. Maintained the web funder platform and Alami mobile backend under OJK compliance. Received an Exceptional Performance rating in the 2023 review.',
     tags: ['React', 'React Native', 'OJK', 'Fintech'],
+    achievement: (
+      <>Deposito feature drove <em>IDR 26.8B</em> DPK growth across 454 users — shipped under full OJK compliance.</>
+    ),
   },
   {
     year: 'May — Sep 2023',
@@ -43,6 +53,9 @@ const ITEMS: Item[] = [
     desc:
       'Coached bootcamp students on frontend fundamentals, React JS, and Redux for state management — translating real-world experience into lessons that actually stick.',
     tags: ['React', 'Redux', 'Mentoring'],
+    achievement: (
+      <>Translated production experience into curriculum — students left with a <em>working full-stack project</em> on day one of job hunting.</>
+    ),
   },
   {
     year: 'Jun 2022 — Apr 2024',
@@ -51,6 +64,9 @@ const ITEMS: Item[] = [
     desc:
       'Built the Vertical Banking stream for Hijra for Business — 100% post-release transaction success, IDR 150M balance in 3 months, 4k users in month one. Engineered a PR-triggered auto-deploy pipeline and optimised a 1.5 GB image asset down to 66 MB.',
     tags: ['Next.js', 'React', 'TypeScript', 'DevOps'],
+    achievement: (
+      <>Vertical Banking: <em>4k users</em>, IDR 150M balance in month one, <em>100% transaction success</em> post-release.</>
+    ),
   },
   {
     year: '2021 — 2022',
@@ -59,6 +75,9 @@ const ITEMS: Item[] = [
     desc:
       'First fulltime role. Shipped features across the stack, deepened expertise in Vue.js and Golang, and learned what it means to own something in production.',
     tags: ['Vue.js', 'Golang', 'PostgreSQL', 'MongoDB'],
+    achievement: (
+      <>First production owner — shipped features <em>end-to-end</em> across Vue.js and Golang from day one.</>
+    ),
   },
   {
     year: '2017 — 2020',
@@ -67,6 +86,9 @@ const ITEMS: Item[] = [
     desc:
       'Studied computer science, worked part-time at BroilerX building a poultry farm SaaS, interned at the Ministry of Social Affairs, and taught Laravel & React as a lab assistant. The years that built the foundation.',
     tags: ['PHP', 'Laravel', 'React JS', 'GraphQL'],
+    achievement: (
+      <>Lab assistant, SaaS developer, ministry intern — <em>three real projects</em> before graduation.</>
+    ),
   },
 ];
 
@@ -95,7 +117,7 @@ export default function Journey() {
             </SplitWords>
           </h2>
         </Reveal>
-        <Reveal delay={0.1} className="text-[18px] leading-[1.5] text-ink max-w-[460px]">
+        <Reveal delay={0.1} className="text-[18px] leading-[1.5] max-w-[460px]" style={{ color: 'var(--fg-now)' }}>
           <p>
             Every line in this timeline started as a{' '}
             <em className="font-serif italic text-blue">nervous first PR</em>. From classroom labs
@@ -105,7 +127,11 @@ export default function Journey() {
       </div>
 
       <StaggerGroup className="relative mt-5">
-        <div ref={timelineRef} className="absolute top-0 bottom-0 w-px bg-ink/15 left-[60px] md:left-[140px]">
+        <div
+          ref={timelineRef}
+          className="absolute top-0 bottom-0 w-px left-[60px] md:left-[140px]"
+          style={{ background: 'var(--line)' }}
+        >
           <motion.div
             className="absolute top-0 left-0 w-px bg-gradient-to-b from-blue to-blue-deep"
             style={{ height: fillHeight }}
@@ -114,36 +140,56 @@ export default function Journey() {
         {ITEMS.map((it, i) => (
           <StaggerItem
             key={i}
-            className={`group relative grid grid-cols-[60px_1fr] md:grid-cols-[140px_1fr] gap-5 md:gap-10 py-8 border-t border-ink/15 ${
+            className={`group relative grid grid-cols-[60px_1fr] md:grid-cols-[140px_1fr] gap-5 md:gap-10 py-8 border-t ${
               i === ITEMS.length - 1 ? 'border-b' : ''
             }`}
+            style={{ borderColor: 'var(--line)' }}
           >
-            <div className="font-mono text-[13px] tracking-[0.08em] text-ink/55 pt-1">
+            <div className="font-mono text-[13px] tracking-[0.08em] pt-1" style={{ color: 'var(--muted)' }}>
               {it.year}
             </div>
-            <span className="absolute top-[46px] left-[60px] md:left-[140px] w-[11px] h-[11px] rounded-full bg-paper border-[1.5px] border-ink -translate-x-1/2 transition-all duration-300 group-hover:bg-blue group-hover:border-blue group-hover:scale-[1.4]" />
+            <span
+              className="absolute top-[46px] left-[60px] md:left-[140px] w-[11px] h-[11px] rounded-full -translate-x-1/2 transition-all duration-300 group-hover:bg-blue group-hover:!border-blue group-hover:scale-[1.4]"
+              style={{ background: 'var(--paper)', border: '1.5px solid var(--ink)' }}
+            />
             <div className="pl-5 md:pl-9">
               <h3
-                className="font-sans font-normal text-ink m-0 [&>em]:font-serif [&>em]:italic [&>em]:text-blue"
+                className="font-sans font-normal m-0 [&>em]:font-serif [&>em]:italic [&>em]:text-blue"
                 style={{
                   letterSpacing: '-0.02em',
                   fontSize: 'clamp(24px,3vw,38px)',
                   lineHeight: 1.05,
+                  color: 'var(--fg-now)',
                 }}
               >
                 {it.role}
               </h3>
-              <p className="mt-2 text-sm text-ink/55 font-mono tracking-[0.04em]">{it.org}</p>
-              <p className="mt-3.5 text-[15px] leading-[1.55] max-w-[680px] text-ink">{it.desc}</p>
+              <p className="mt-2 text-sm font-mono tracking-[0.04em]" style={{ color: 'var(--muted)' }}>
+                {it.org}
+              </p>
+              <p
+                className="mt-3.5 text-[15px] leading-[1.55] max-w-[680px]"
+                style={{ color: 'var(--fg-now)' }}
+              >
+                {it.desc}
+              </p>
               <div className="flex flex-wrap gap-2 mt-3.5">
                 {it.tags.map((t) => (
                   <span
                     key={t}
-                    className="font-mono text-[11px] tracking-[0.06em] px-2.5 py-1 border border-ink/15 rounded-full text-ink"
+                    className="font-mono text-[11px] tracking-[0.06em] px-2.5 py-1 rounded-full"
+                    style={{ border: '1px solid var(--line)', color: 'var(--fg-now)' }}
                   >
                     {t}
                   </span>
                 ))}
+              </div>
+              <div className="tl-ach">
+                <div className="ach-ico">★</div>
+                <div className="ach-body">
+                  <span className="ach-label">Key achievement</span>
+                  <p className="ach-text">{it.achievement}</p>
+                </div>
               </div>
             </div>
           </StaggerItem>

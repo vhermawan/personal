@@ -93,7 +93,7 @@ export default function Projects() {
           </b>
           <div>
             <div>Projects</div>
-            <span className="font-mono text-[11px]">2018 — 2021</span>
+            <span className="font-mono text-[11px]">2018 — Now</span>
           </div>
         </Reveal>
       </div>

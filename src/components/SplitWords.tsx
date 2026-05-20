@@ -1,5 +1,5 @@
 import { motion, useInView } from 'motion/react';
-import { useRef, type ReactNode } from 'react';
+import { Fragment, useRef, type ReactNode } from 'react';
 
 interface SplitWordsProps {
   children: ReactNode;
@@ -31,21 +31,23 @@ export default function SplitWords({
   return (
     <span ref={ref} className={`split-line ${className ?? ''}`}>
       {words.map((w, i) => (
-        <span key={i} style={{ display: 'inline-block' }}>
-          <motion.span
-            className="word"
-            initial={{ y: '110%', opacity: 0 }}
-            animate={inView ? { y: '0%', opacity: 1 } : undefined}
-            transition={{
-              duration,
-              ease: [0.16, 1, 0.3, 1],
-              delay: delay + i * stagger,
-            }}
-          >
-            {w}
-          </motion.span>
+        <Fragment key={i}>
+          <span style={{ display: 'inline-block' }}>
+            <motion.span
+              className="word"
+              initial={{ y: '110%', opacity: 0 }}
+              animate={inView ? { y: '0%', opacity: 1 } : undefined}
+              transition={{
+                duration,
+                ease: [0.16, 1, 0.3, 1],
+                delay: delay + i * stagger,
+              }}
+            >
+              {w}
+            </motion.span>
+          </span>
           {i < words.length - 1 ? ' ' : ''}
-        </span>
+        </Fragment>
       ))}
     </span>
   );

@@ -1,5 +1,5 @@
 import { motion, type Variants } from 'motion/react';
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -9,6 +9,7 @@ const fadeUp: Variants = {
 interface RevealProps {
   children: ReactNode;
   className?: string;
+  style?: CSSProperties;
   delay?: number;
   amount?: number;
   as?: 'div' | 'section' | 'article' | 'span' | 'p';
@@ -17,6 +18,7 @@ interface RevealProps {
 export default function Reveal({
   children,
   className,
+  style,
   delay = 0,
   amount = 0.2,
   as = 'div',
@@ -25,6 +27,7 @@ export default function Reveal({
   return (
     <Comp
       className={className}
+      style={style}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount }}

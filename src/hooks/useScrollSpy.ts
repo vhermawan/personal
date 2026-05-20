@@ -9,12 +9,12 @@ export default function useScrollSpy(ids: string[], onChange: (id: string) => vo
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting && e.intersectionRatio > 0.3) {
+          if (e.isIntersecting) {
             onChange(e.target.id);
           }
         });
       },
-      { threshold: [0.3, 0.6] }
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
     );
     sections.forEach((s) => obs.observe(s));
     return () => obs.disconnect();

@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import useScrollSpy from '../hooks/useScrollSpy';
+import ThemeToggle from './ThemeToggle';
 
 interface NavProps {
   dark: boolean;
@@ -16,6 +18,7 @@ const LINKS: Array<{ id: string; label: string }> = [
 export default function Nav({ dark }: NavProps) {
   const [active, setActive] = useState('home');
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { pathname } = useLocation();
   useScrollSpy(['home', 'journey', 'project', 'about'], setActive);
 
   const handleMobileLink = () => setMobileOpen(false);
@@ -33,7 +36,7 @@ export default function Nav({ dark }: NavProps) {
         }`}
       >
         <a
-          href="#home"
+          href={pathname === '/' ? '#home' : '/#home'}
           className={`inline-flex items-center gap-2 pl-2 pr-3 py-2 font-serif italic text-[18px] no-underline transition-colors ${
             dark ? 'text-white' : 'text-ink'
           }`}
@@ -49,11 +52,11 @@ export default function Nav({ dark }: NavProps) {
         </a>
         <span className={`hidden sm:block w-px h-[18px] mx-1 ${dark ? 'bg-white/20' : 'bg-ink/15'}`} />
         {LINKS.map((l) => {
-          const isActive = active === l.id;
+          const isActive = pathname === '/' && active === l.id;
           return (
             <a
               key={l.id}
-              href={`#${l.id}`}
+              href={pathname === '/' ? `#${l.id}` : `/#${l.id}`}
               className={`hidden sm:inline-block relative px-3.5 py-2 rounded-full no-underline transition-colors ${
                 isActive
                   ? dark
@@ -68,12 +71,29 @@ export default function Nav({ dark }: NavProps) {
             </a>
           );
         })}
+        <Link
+          to="/blog"
+          className={`hidden sm:inline-block relative px-3.5 py-2 rounded-full no-underline transition-colors ${
+            pathname.startsWith('/blog')
+              ? dark
+                ? 'bg-white text-ink'
+                : 'bg-ink text-paper'
+              : dark
+              ? 'text-white hover:bg-white/10'
+              : 'text-ink hover:bg-ink/5'
+          }`}
+        >
+          Blog
+        </Link>
         <span className={`hidden sm:block w-px h-[18px] mx-1 ${dark ? 'bg-white/20' : 'bg-ink/15'}`} />
+
+        {/* Theme toggle */}
+        <ThemeToggle />
 
         {/* Desktop Connect */}
         <a
           data-magnet
-          href="#contact"
+          href={pathname === '/' ? '#contact' : '/#contact'}
           className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-blue text-white font-medium no-underline transition-colors hover:bg-blue-deep"
         >
           Connect
@@ -91,7 +111,7 @@ export default function Nav({ dark }: NavProps) {
         {/* Mobile right side */}
         <div className="sm:hidden flex items-center gap-1.5 ml-auto">
           <a
-            href="#contact"
+            href={pathname === '/' ? '#contact' : '/#contact'}
             className="inline-flex items-center gap-1.5 px-3 py-2 rounded-full bg-blue text-white font-medium no-underline transition-colors hover:bg-blue-deep text-[12px]"
           >
             Connect
@@ -139,11 +159,11 @@ export default function Nav({ dark }: NavProps) {
             }`}
           >
             {LINKS.map((l) => {
-              const isActive = active === l.id;
+              const isActive = pathname === '/' && active === l.id;
               return (
                 <a
                   key={l.id}
-                  href={`#${l.id}`}
+                  href={pathname === '/' ? `#${l.id}` : `/#${l.id}`}
                   onClick={handleMobileLink}
                   className={`px-4 py-2.5 rounded-xl no-underline transition-colors text-[14px] ${
                     isActive
@@ -159,6 +179,21 @@ export default function Nav({ dark }: NavProps) {
                 </a>
               );
             })}
+            <Link
+              to="/blog"
+              onClick={handleMobileLink}
+              className={`px-4 py-2.5 rounded-xl no-underline transition-colors text-[14px] ${
+                pathname.startsWith('/blog')
+                  ? dark
+                    ? 'bg-white text-ink font-medium'
+                    : 'bg-ink text-paper font-medium'
+                  : dark
+                  ? 'text-white hover:bg-white/10'
+                  : 'text-ink hover:bg-ink/5'
+              }`}
+            >
+              Blog
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
