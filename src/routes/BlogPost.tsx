@@ -17,13 +17,13 @@ export default function BlogPost() {
 
   if (!post) {
     return (
-      <section className="px-[6vw] pt-[170px] pb-40">
+      <section className="px-[6vw] pt-16 sm:pt-20 pb-40">
         <h1 className="font-sans font-light text-[64px]" style={{ color: 'var(--fg-now)' }}>
           Not here.
         </h1>
         <p className="mt-4" style={{ color: 'var(--muted)' }}>
           That note doesn't exist yet —{' '}
-          <Link to="/blog" className="text-blue underline">
+          <Link to="/blog" className="text-accent underline">
             see all notes ↗
           </Link>
         </p>
@@ -38,12 +38,12 @@ export default function BlogPost() {
     <>
       {/* Reading progress bar */}
       <motion.div
-        className="fixed left-0 top-0 h-[2px] z-[60] bg-gradient-to-r from-blue to-blue-deep origin-left"
+        className="fixed left-0 top-0 h-[2px] z-[60] bg-gradient-to-r from-accent to-accent-deep origin-left"
         style={{ scaleX: progress, width: '100%' }}
       />
 
       <section
-        className="relative z-[2] px-[6vw] pt-[170px] pb-16 border-b"
+        className="relative z-[2] px-[6vw] pt-16 sm:pt-20 pb-16 border-b"
         style={{ borderColor: 'var(--line)' }}
       >
         <Reveal>
@@ -60,14 +60,14 @@ export default function BlogPost() {
           </div>
         </Reveal>
         <Reveal>
-          <span className="inline-block mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-blue px-3 py-1.5 border border-blue rounded-full capitalize">
+          <span className="inline-block mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-accent px-3 py-1.5 border border-accent rounded-full capitalize">
             {post.category}
             {post.featured ? ' · Featured' : ''}
           </span>
         </Reveal>
         <Reveal>
           <h1
-            className="font-sans font-light m-0 mt-6 max-w-[1100px] [&_em]:font-serif [&_em]:italic [&_em]:font-normal [&_em]:text-blue"
+            className="font-sans font-light m-0 mt-6 max-w-[1100px] [&_em]:font-display [&_em]:italic [&_em]:font-normal [&_em]:text-accent"
             style={{
               letterSpacing: '-0.045em',
               fontSize: 'clamp(48px,7.5vw,120px)',
@@ -249,7 +249,7 @@ function Signoff() {
   return (
     <section className="relative z-[2] py-15 px-[6vw] border-t text-center" style={{ borderColor: 'var(--line)' }}>
       <Reveal>
-        <span className="font-serif italic text-[48px] text-blue inline-block">— Vicky.</span>
+        <span className="font-display italic text-[48px] text-accent inline-block">— Vicky.</span>
       </Reveal>
       <div className="mt-3.5 font-mono text-[11px] uppercase tracking-[0.16em]" style={{ color: 'var(--muted)' }}>
         Written from a desk in Surabaya · 2026
@@ -274,7 +274,7 @@ function ShareRow() {
       <a
         href="#"
         onClick={copy}
-        className="px-4 py-2.5 rounded-full text-[13px] no-underline transition-colors hover:!bg-blue hover:!text-white hover:!border-blue"
+        className="px-4 py-2.5 rounded-full text-[13px] no-underline transition-colors hover:!bg-accent hover:!text-white hover:!border-accent"
         style={{ border: '1px solid var(--line)', color: 'var(--fg-now)' }}
       >
         {copied ? 'Copied ✓' : 'Copy link'}
@@ -283,14 +283,14 @@ function ShareRow() {
         href="https://twitter.com/intent/tweet?text=The%20case%20for%20quiet%20architecture"
         target="_blank"
         rel="noreferrer"
-        className="px-4 py-2.5 rounded-full text-[13px] no-underline transition-colors hover:!bg-blue hover:!text-white hover:!border-blue"
+        className="px-4 py-2.5 rounded-full text-[13px] no-underline transition-colors hover:!bg-accent hover:!text-white hover:!border-accent"
         style={{ border: '1px solid var(--line)', color: 'var(--fg-now)' }}
       >
         Share on Twitter
       </a>
       <Link
         to="/blog"
-        className="px-4 py-2.5 rounded-full text-[13px] no-underline transition-colors hover:!bg-blue hover:!text-white hover:!border-blue"
+        className="px-4 py-2.5 rounded-full text-[13px] no-underline transition-colors hover:!bg-accent hover:!text-white hover:!border-accent"
         style={{ border: '1px solid var(--line)', color: 'var(--fg-now)' }}
       >
         All notes
@@ -308,7 +308,7 @@ function NextUp({ next }: { next: ReturnType<typeof getPost> }) {
       </span>
       <Link to={`/blog/${next.id}`} className="group flex flex-wrap items-end justify-between gap-8 mt-4 no-underline text-slab-fg">
         <h2
-          className="font-sans font-light m-0 max-w-[780px] [&_em]:font-serif [&_em]:italic [&_em]:text-blue-soft [&_em]:font-normal"
+          className="font-sans font-light m-0 max-w-[780px] [&_em]:font-display [&_em]:italic [&_em]:text-accent-soft [&_em]:font-normal"
           style={{
             letterSpacing: '-0.04em',
             fontSize: 'clamp(36px,5vw,72px)',
