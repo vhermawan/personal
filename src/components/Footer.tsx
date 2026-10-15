@@ -1,21 +1,10 @@
 export default function Footer() {
   return (
-    <footer
-      className="relative z-[3] flex flex-wrap items-center justify-between gap-5 px-[6vw] py-8 font-mono text-[11px] uppercase tracking-[0.12em]"
-      style={{ borderTop: '1px solid var(--line)', color: 'var(--muted)' }}
-    >
-      <div className="flex items-center gap-3.5">
-        <span>Vihermawan™</span>
-        <span>·</span>
-        <span>Crafted in Surabaya, 2026</span>
+    <footer className="border-t border-line">
+      <div className="mx-auto max-w-[1440px] flex flex-wrap items-center justify-between gap-3 px-4 pt-7 pb-10 sm:px-20 font-mono text-[11px]">
+        <span className="text-faint">© 2026 Vicky Hermawan — Surabaya, ID · UTC+7</span>
+        <span className="text-accent tracking-[0.6px]">AVAILABLE FOR COLLABORATION</span>
       </div>
-      <a
-        href="#home"
-        className="no-underline border-b border-transparent hover:border-blue transition-colors"
-        style={{ color: 'var(--fg-now)' }}
-      >
-        Back to top ↑
-      </a>
     </footer>
   );
 }

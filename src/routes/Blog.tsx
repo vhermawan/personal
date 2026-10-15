@@ -16,10 +16,10 @@ export default function Blog() {
 
   return (
     <>
-      <section className="relative z-[2] px-[6vw] pt-[170px] pb-20 border-b" style={{ borderColor: 'var(--line)' }}>
+      <section className="relative z-[2] px-[6vw] pt-16 sm:pt-20 pb-20 border-b" style={{ borderColor: 'var(--line)' }}>
         <Reveal>
           <div className="font-mono text-[11px] uppercase tracking-[0.18em] inline-flex items-center gap-2.5" style={{ color: 'var(--muted)' }}>
-            <Link to="/" className="no-underline hover:!text-blue transition-colors" style={{ color: 'var(--muted)' }}>
+            <Link to="/" className="no-underline hover:!text-accent transition-colors" style={{ color: 'var(--muted)' }}>
               Home
             </Link>
             <span>/</span>
@@ -28,7 +28,7 @@ export default function Blog() {
         </Reveal>
         <Reveal>
           <h1
-            className="font-sans font-light m-0 mt-5 [&_em]:font-serif [&_em]:italic [&_em]:font-normal [&_em]:text-blue"
+            className="font-sans font-light m-0 mt-5 [&_em]:font-display [&_em]:italic [&_em]:font-normal [&_em]:text-accent"
             style={{
               letterSpacing: '-0.045em',
               fontSize: 'clamp(48px,8vw,128px)',
@@ -41,7 +41,7 @@ export default function Blog() {
         </Reveal>
         <Reveal>
           <p
-            className="mt-7 text-[clamp(17px,1.4vw,21px)] leading-[1.5] max-w-[620px] [&_em]:font-serif [&_em]:italic [&_em]:text-blue"
+            className="mt-7 text-[clamp(17px,1.4vw,21px)] leading-[1.5] max-w-[620px] [&_em]:font-display [&_em]:italic [&_em]:text-accent"
             style={{ color: 'var(--fg-now)' }}
           >
             Short essays, tear-downs, and post-mortems from building products on the web. Written
@@ -126,20 +126,20 @@ function FeaturedPost({ post }: { post: typeof POSTS[number] }) {
       <div className="lg:order-2 order-1 relative h-[260px] rounded-[22px] overflow-hidden"
         style={{
           background:
-            'radial-gradient(120% 90% at 30% 20%, #2D5BFF 0%, #1A3DD9 50%, #0A1A3F 100%)',
+            'radial-gradient(120% 90% at 30% 20%, #FF8A4C 0%, #FF5B04 50%, #1A0C04 100%)',
         }}
       >
         <div className="absolute inset-[30px] border border-dashed rounded-[14px]" style={{ borderColor: 'rgba(255,255,255,.22)' }} />
-        <span className="absolute left-6 bottom-[22px] font-serif italic text-white text-[40px] leading-none" style={{ letterSpacing: '-0.02em' }}>
+        <span className="absolute left-6 bottom-[22px] font-display italic text-white text-[40px] leading-none" style={{ letterSpacing: '-0.02em' }}>
           quiet architecture
         </span>
       </div>
       <div className="lg:order-1 order-2">
-        <span className="inline-block font-mono text-[11px] uppercase tracking-[0.18em] text-blue mb-3">
+        <span className="inline-block font-mono text-[11px] uppercase tracking-[0.18em] text-accent mb-3">
           Featured · {post.category}
         </span>
         <h3
-          className="font-sans font-normal m-0 transition-colors [&_em]:font-serif [&_em]:italic [&_em]:text-blue [&_em]:font-normal group-hover:text-blue"
+          className="font-sans font-normal m-0 transition-colors [&_em]:font-display [&_em]:italic [&_em]:text-accent [&_em]:font-normal group-hover:text-accent"
           style={{
             letterSpacing: '-0.025em',
             fontSize: 'clamp(34px,4vw,56px)',
@@ -172,7 +172,7 @@ function ListPost({ post }: { post: typeof POSTS[number] }) {
       </span>
       <div>
         <h3
-          className="font-sans font-normal m-0 transition-all duration-500 [&_em]:font-serif [&_em]:italic [&_em]:text-blue [&_em]:font-normal group-hover:text-blue group-hover:translate-x-2"
+          className="font-sans font-normal m-0 transition-all duration-500 [&_em]:font-display [&_em]:italic [&_em]:text-accent [&_em]:font-normal group-hover:text-accent group-hover:translate-x-2"
           style={{
             letterSpacing: '-0.025em',
             fontSize: 'clamp(22px,2.6vw,38px)',
@@ -190,7 +190,7 @@ function ListPost({ post }: { post: typeof POSTS[number] }) {
         </div>
       </div>
       <span
-        className="w-[54px] h-[54px] rounded-full grid place-items-center text-[18px] transition-all duration-300 group-hover:bg-blue group-hover:text-white group-hover:border-blue group-hover:rotate-45"
+        className="w-[54px] h-[54px] rounded-full grid place-items-center text-[18px] transition-all duration-300 group-hover:bg-accent group-hover:text-white group-hover:border-accent group-hover:rotate-45"
         style={{ border: '1px solid var(--line)', color: 'var(--fg-now)' }}
       >
         ↗

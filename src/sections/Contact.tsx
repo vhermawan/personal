@@ -1,83 +1,34 @@
+import type { ComponentType, SVGProps } from 'react';
 import Reveal from '../components/Reveal';
-import SplitWords from '../components/SplitWords';
+import { LinkedinIcon, MailIcon, TwitterIcon } from '../components/Icons';
+
+const LINKS: Array<{ label: string; href: string; Icon: ComponentType<SVGProps<SVGSVGElement>>; external?: boolean }> = [
+  { label: 'hello@vihermawan.space', href: 'mailto:hello@vihermawan.space', Icon: MailIcon },
+  { label: '@vihermawan on X', href: 'https://twitter.com/vihermawan', Icon: TwitterIcon, external: true },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/vicky-hermawan/', Icon: LinkedinIcon, external: true },
+];
 
 export default function Contact() {
   return (
-    <section
-      className="relative z-[3] px-[6vw] pt-16 pb-36"
-      id="contact"
-      data-screen-label="05 Contact"
-      data-theme="paper"
-    >
-      <Reveal>
-        <div
-          className="relative overflow-hidden rounded-[36px] px-[6vw] py-20 text-white"
-          style={{ background: 'linear-gradient(135deg,#2D5BFF 0%, #1A3DD9 60%, #0A1A3F 120%)' }}
-        >
-          <div
-            className="absolute inset-[-2px] rounded-[36px] pointer-events-none"
-            style={{
-              background:
-                'radial-gradient(60% 80% at 80% 20%, rgba(255,255,255,.18), transparent 60%), radial-gradient(50% 60% at 10% 100%, rgba(255,255,255,.12), transparent 60%)',
-            }}
-          />
-          <span className="relative font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
-            Section 05 — Get in touch
-          </span>
-          <h2
-            className="relative font-sans font-light text-white m-0 mt-4 mb-7 [&_em]:font-serif [&_em]:italic [&_em]:font-normal"
-            style={{
-              letterSpacing: '-0.04em',
-              fontSize: 'clamp(40px, 7vw, 110px)',
-              lineHeight: 0.95,
-            }}
-          >
-            <SplitWords amount={0.3}>{['Have', 'an', 'idea?']}</SplitWords>
-            <SplitWords amount={0.3} delay={0.1}>
-              {[
-                <em key="l">Let's</em>,
-                <em key="m">make</em>,
-                <em key="i">it</em>,
-                <em key="r">real.</em>,
-              ]}
-            </SplitWords>
-          </h2>
-          <div className="relative flex flex-wrap gap-3.5">
+    <section id="contact" className="mx-auto max-w-[1440px] px-4 sm:px-10 lg:px-20 pb-16 lg:pb-20">
+      <Reveal className="flex flex-col gap-[26px] rounded-[28px] bg-accent px-6 py-14 sm:px-12 lg:px-[72px] lg:py-[88px] overflow-hidden">
+        <span className="font-mono text-[11px] tracking-[0.8px] text-accent-tint">SECTION 05 — GET IN TOUCH</span>
+        <h2 className="m-0 flex flex-col font-display font-bold text-[clamp(38px,5vw,72px)] leading-[1.08] tracking-[-0.042em]">
+          <span className="text-white">Have an idea?</span>
+          <em className="text-accent-ink italic">Let's make it real.</em>
+        </h2>
+        <div className="flex flex-wrap gap-3 pt-3.5">
+          {LINKS.map(({ label, href, Icon, external }) => (
             <a
-              data-magnet
-              href="https://twitter.com/vihermawan"
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-white text-ink font-medium text-sm no-underline transition-colors hover:bg-paper"
+              key={label}
+              href={href}
+              {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
+              className="inline-flex items-center gap-2 px-5 py-[13px] rounded-full bg-white text-[#111111] text-[13px] font-semibold no-underline transition-[background-color,color,transform] duration-200 hover:bg-accent-ink hover:text-white active:scale-[0.97]"
             >
-              @vihermawan on Twitter
-              <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
-                ↗
-              </span>
+              <Icon className="w-[15px] h-[15px]" />
+              {label}
             </a>
-            <a
-              data-magnet
-              href="https://www.linkedin.com/in/vicky-hermawan/"
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-transparent text-white border border-white/40 font-medium text-sm no-underline transition-colors hover:bg-white hover:text-ink hover:border-white"
-            >
-              LinkedIn
-              <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
-                ↗
-              </span>
-            </a>
-            <a
-              data-magnet
-              href="mailto:hello@vihermawan.space"
-              className="group inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-transparent text-white border border-white/40 font-medium text-sm no-underline transition-colors hover:bg-white hover:text-ink hover:border-white"
-            >
-              hello@vihermawan.space
-              <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
-                ↗
-              </span>
-            </a>
-          </div>
+          ))}
         </div>
       </Reveal>
     </section>

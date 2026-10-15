@@ -12,7 +12,7 @@ interface RevealProps {
   style?: CSSProperties;
   delay?: number;
   amount?: number;
-  as?: 'div' | 'section' | 'article' | 'span' | 'p';
+  as?: 'div' | 'section' | 'article' | 'span' | 'p' | 'li';
 }
 
 export default function Reveal({

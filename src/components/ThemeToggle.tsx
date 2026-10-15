@@ -1,36 +1,17 @@
 import { useTheme } from '../contexts/ThemeContext';
+import { MoonIcon, SunIcon } from './Icons';
 
 export default function ThemeToggle() {
-  const { toggle } = useTheme();
+  const { mode, toggle } = useTheme();
+  const isDark = mode === 'dark';
   return (
     <button
       type="button"
-      aria-label="Toggle dark mode"
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       onClick={(e) => toggle(e)}
-      className="theme-toggle"
+      className="w-10 h-10 shrink-0 rounded-full bg-surface text-ink grid place-items-center transition-colors hover:bg-line"
     >
-      <svg
-        className="ic-sun"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-      >
-        <circle cx="12" cy="12" r="4" />
-        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-      </svg>
-      <svg
-        className="ic-moon"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-      </svg>
+      {isDark ? <SunIcon className="w-[18px] h-[18px]" /> : <MoonIcon className="w-[18px] h-[18px]" />}
     </button>
   );
 }
