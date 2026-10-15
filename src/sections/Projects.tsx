@@ -1,15 +1,15 @@
 import Reveal, { StaggerGroup, StaggerItem } from '../components/Reveal';
 import { ArrowUpRightIcon } from '../components/Icons';
-import broilerx from '../assets/home/work-broilerx.jpg';
-import everlin from '../assets/home/work-everlin.jpg';
-import tax from '../assets/home/work-tax.jpg';
-import community from '../assets/home/work-community.jpg';
+import andalan from '../assets/home/work-andalan.jpg';
+import repair from '../assets/home/work-repair.jpg';
+import apotek from '../assets/home/work-apotek.jpg';
+import jaklingko from '../assets/home/work-jaklingko.jpg';
 
 const PROJECTS = [
-  { title: 'BroilerX SaaS', meta: 'FULLSTACK · 2020', tags: 'FARM MANAGEMENT · GRAPHQL · REACT JS', image: broilerx },
-  { title: 'Everlin Habits', meta: 'FINAL PROJECT · 2020', tags: 'REACT · REDUX · LARAVEL · POSTGRESQL', image: everlin },
-  { title: 'Tax Info System', meta: 'CLIENT WORK · 2019', tags: 'TAX INFO SYSTEM · LARAVEL · MYSQL', image: tax },
-  { title: 'Community Platform', meta: 'CLIENT WORK · 2019', tags: 'COMMUNITY · LARAVEL · REST API', image: community },
+  { title: 'Andalan Consulting', meta: 'CLIENT WORK', tags: 'CORPORATE SITE · LEGAL & BUSINESS SERVICES', image: andalan, url: 'https://andalanconsulting.com/legal-service/' },
+  { title: 'Repair Project', meta: 'CLIENT WORK', tags: 'COMPANY PROFILE · CIRCULAR MATERIAL', image: repair, url: 'https://www.repairproject.id/' },
+  { title: 'Apotek Digital', meta: 'CLIENT WORK', tags: 'SAAS · PHARMACY MANAGEMENT', image: apotek, url: 'https://apotekdigital.com/' },
+  { title: 'Ticketing Jaklingko', meta: 'CLIENT WORK', tags: 'TICKETING · PUBLIC TRANSPORT', image: jaklingko, url: 'https://jaklingkoindonesia.co.id/' },
 ];
 
 export default function Projects() {
@@ -31,7 +31,12 @@ export default function Projects() {
       <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 gap-7">
         {PROJECTS.map((p, i) => (
           <StaggerItem key={p.title}>
-            <article className="group flex flex-col rounded-[20px] bg-surface overflow-hidden">
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noreferrer"
+              className="group flex flex-col rounded-[20px] bg-surface overflow-hidden no-underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+            >
               <div className="flex items-center justify-between px-[22px] py-5">
                 <span className="inline-flex items-center gap-[7px] px-[13px] py-[7px] rounded-full bg-bg font-mono text-[10px] tracking-[0.6px] text-ink">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent" />
@@ -63,7 +68,7 @@ export default function Projects() {
                   <ArrowUpRightIcon className="w-[18px] h-[18px]" />
                 </span>
               </div>
-            </article>
+            </a>
           </StaggerItem>
         ))}
       </StaggerGroup>
