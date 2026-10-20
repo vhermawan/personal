@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .tile { fill: #111111; }
+    .mark { fill: #FFFFFF; }
+    @media (prefers-color-scheme: dark) {
+      .tile { fill: #F5F3F0; }
+      .mark { fill: #111111; }
+    }
+  </style>
+  <defs>
+    <clipPath id="r"><rect width="64" height="64" rx="18.5" /></clipPath>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect class="tile" width="64" height="64" />
+    <rect y="50.5" width="64" height="13.5" fill="#FF5B04" />
+  </g>
+  <path class="mark" d="M12.5 25.8H17.9L21.75 38.5L25.6 25.8H31L24.6 44.5H18.9Z" />
+  <path class="mark" d="M32.5 19.7H37.5V28.6C38.8 26.6 41 25.4 43.8 25.4C48.4 25.4 51 28.4 51 33.4V44.5H46V34.3C46 31.6 44.7 30 42.3 30C39.6 30 37.5 31.8 37.5 35V44.5H32.5Z" />
+</svg>
