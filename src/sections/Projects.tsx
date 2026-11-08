@@ -76,7 +76,7 @@ export default function Projects() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-3">
         <span className="font-mono text-[10px] tracking-[0.8px] text-faint">MORE WORK AVAILABLE ON REQUEST</span>
         <a
-          href="https://github.com/vihermawan"
+          href="https://github.com/vhermawan"
           target="_blank"
           rel="noreferrer"
           className="group self-start inline-flex items-center gap-2 px-5 py-3 rounded-full border border-line text-ink text-[13px] font-semibold no-underline transition-colors hover:bg-solid hover:text-on-solid hover:border-solid"
