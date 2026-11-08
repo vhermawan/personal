@@ -1,10 +1,10 @@
 import type { ComponentType, SVGProps } from 'react';
 import Reveal from '../components/Reveal';
-import { LinkedinIcon, MailIcon, TwitterIcon } from '../components/Icons';
+import { GithubIcon, LinkedinIcon, MailIcon } from '../components/Icons';
 
 const LINKS: Array<{ label: string; href: string; Icon: ComponentType<SVGProps<SVGSVGElement>>; external?: boolean }> = [
   { label: 'vihermawan7@gmail.com', href: 'mailto:vihermawan7@gmail.com', Icon: MailIcon },
-  { label: '@vihermawan on X', href: 'https://twitter.com/vihermawan', Icon: TwitterIcon, external: true },
+  { label: '@vhermawan on GitHub', href: 'https://github.com/vhermawan', Icon: GithubIcon, external: true },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/vicky-hermawan/', Icon: LinkedinIcon, external: true },
 ];
 
