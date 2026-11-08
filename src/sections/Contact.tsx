@@ -3,7 +3,7 @@ import Reveal from '../components/Reveal';
 import { GithubIcon, LinkedinIcon, MailIcon } from '../components/Icons';
 
 const LINKS: Array<{ label: string; href: string; Icon: ComponentType<SVGProps<SVGSVGElement>>; external?: boolean }> = [
-  { label: 'hello@vihermawan.space', href: 'mailto:hello@vihermawan.space', Icon: MailIcon },
+  { label: 'vihermawan7@gmail.com', href: 'mailto:vihermawan7@gmail.com', Icon: MailIcon },
   { label: '@vhermawan on GitHub', href: 'https://github.com/vhermawan', Icon: GithubIcon, external: true },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/vicky-hermawan/', Icon: LinkedinIcon, external: true },
 ];
